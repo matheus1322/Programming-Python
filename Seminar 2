@@ -1,0 +1,141 @@
+1.Write a program that reads an integer and prints whether it is a positive, negative or zero. 
+
+Num = int(input("Enter a number: ")) 
+
+if Num > 0:  
+
+   print("The number is positive.") 
+
+elif Num < 0:  
+
+   print("The number is negative.")  
+
+else:  
+
+   print("The number is zero.") 
+
+ 
+
+ 2 Write a program reads an integer and prints how many digits the number has, by checking whether the number is >= 10 , >=100,..etc, assuming all intergers are less than 10 billion, if the number is negative then first multiply by -1.  
+
+ 
+
+Num = int(input("Enter a number: "))  
+
+Num = abs(Num) 
+
+Dig_count = 1 
+
+Limit = 10   
+
+ while Num >= limit and limit <= 10000000000: 
+
+    Dig_count += 1 
+
+    Limit *= 10  
+
+  
+
+print(f"The number has {dig_count} digits.") 
+
+ 
+
+ 
+
+3 Write a program that read three numbers and print “in order” if they are sorted in ascending or descending order, or “not in order” otherwise.  
+
+ 
+
+Num1 = int(input("Enter the first number: "))   
+
+ Num2 = int(input("Enter the second number: "))   
+
+ Num3 = int(input("Enter the third number: "))  
+
+  
+
+ if Num1 <= Num2 <= Num3: 
+
+    print("In order (ascending)")   
+
+ elif Num1 >= Num2 >= Num3: 
+
+    print("In order (descending)")   
+
+ else: 
+
+    print("Not in order") 
+
+ 
+
+ 
+
+ 
+
+4 Write a program that reads in a string and prints whether it: 
+
+Contains only letters 
+
+Contains only uppercase 
+
+Contains only lowercase 
+
+Contains only digits 
+
+Contins letters and digits 
+
+Starts with uppercase 
+
+Ends with full stop.  
+
+ 
+
+Text = input("Enter a string: ") 
+
+  
+
+if Text.isalpha(): 
+
+   print("Contains only letters") 
+
+if Text.isupper(): 
+
+    print("Contains only uppercase") 
+
+if Text.islower(): 
+
+    print("Contains only lowercase") 
+
+if Text.isdigit(): 
+
+    print("Contains only digits") 
+
+if any(c.isalpha() for c in Text) and any(c.isdigit() for c in Text): 
+
+    print("Contains letters and digits") 
+
+if Text[0].isupper(): 
+
+    print("Starts with uppercase") 
+
+if Text.endswith("."): 
+
+    print("Ends with full stop") 
+
+ 
+
+5 Write a program that asks the user to enter the a month (1 for January, 2 for February,..) and then prints the number of days in the month. For February, print 28 or 29 days 
+
+ 
+
+Month = int(input("Enter a month (one number between 1 and 12): "))  
+
+Days_in_month = { 1: 31, 2: "28 or 29", 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31 }  
+
+if Month in Days_in_month:  
+
+   print(f"The month has {Days_in_month[Month]} days.")  
+
+else:  
+
+   print("Invalid month. Please enter a number between 1 and 12.") 
