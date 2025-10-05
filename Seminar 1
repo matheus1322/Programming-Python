@@ -1,0 +1,127 @@
+1.Write a program that reads a number and displays the square, cube, and fourth power. Use the ** operator only for the fourth power.  
+
+#User input to start calculation 
+
+Number = float(input("Please enter a number: ")) 
+
+Square = Number *Number #Square calculation 
+
+Cube = Number*Number*Number #Cube calculation 
+
+Fourth = Number ** 4 #Fourth calculation 
+
+#Output the results of calculations in one print 
+
+print("The square is ", Square, "The Cube is ", Cube, "The Fourth is ", {Fourth}) 
+
+ 
+
+2 Write a program that prompts the user for two interferes and then prints: - The sum - The difference - The product - The average - The distance (absolute value of the difference) - The maximum (the larger of the two) - The minimum (the smaller of the two)  
+
+ 
+
+Number1 =int(input("Enter a number: ")) #User input number1 
+
+Number2 =int(input("Enter a number: ")) #User input number2 
+
+  
+
+Sum = Number1 + Number2 #Calculation the sum of numbers 
+
+Diff = Number1 - Number2 #Calculation the difference of numbers 
+
+Prod = Number1 * Number2 #Calculation the product of numbers 
+
+Avrg = (Number1 + Number2) /2 #Calculation the average of numbers 
+
+Dist = abs(Number1 - Number2) #Calculation the absolute value of difference between numbers 
+
+Max = max(Number1, Number2) #The maximum between 2 numbers 
+
+Min = min(Number1, Number2) # The minimum between 2 numbers 
+
+  
+
+print(f"Sum: {Sum}") #Sum output 
+
+print(f"Difference: {Diff}") #Difference output 
+
+print(f"Product: {Prod}") #Product output 
+
+print(f"Average: {Avrg}")#Average output 
+
+print(f"Distance: {Dist}")#Distance output 
+
+print(f"Maximum: {Max}") #Maximum output 
+
+print(f"Minimum: {Min}") #Minimum output 
+
+ 
+
+ 
+
+3 Write a program that prints the following grid o play tic-tac-toe  
+
+ 
+
+Top = " ___|___|___" #Variable to top part of tic-tac-toe 
+
+Middle = "___|___|___" #Variable middle part of tic-tac-toe 
+
+Bottom = "   |   |   " #VAriable bottom part of tic-tac-toe 
+
+print(f"{Top}\n {Middle}\n {Bottom}") # Tic-tac-toe output 
+
+ 
+
+4 Write a program that reads a five-digit positive integer and breaks in into a sequence of individual digits. For example, the input 16384 is displayed as 1 6 3 8 4  
+
+ 
+
+Number = input("Enter five numbers: ") #User iput the five numbers 
+
+  
+
+if len(Number) == 5 and Number.isdigit(): #check if user inputted 5 numbers  
+
+    print(*Number) #print the numbers using asterisk that allow to print each character such a individual value, that method is used to unpack tuples and is effective in that situation. 
+
+else: 
+
+    print(" Please enter five numbers.") #Handle the program to prevent errors 
+
+ 
+
+ 
+
+5 Write a program that prompts the user for a measurement in meters and then converts into miles, feet, and inches.  
+
+ 
+
+M_miles = 0.000621371 
+
+M_feet = 3.2808388799999997 
+
+M_inches = 39.370066559999997935 
+
+  
+
+Meters = float(input("Enter measurement in meters: ")) 
+
+  
+
+Miles = Meters * M_miles 
+
+Feet = Meters * M_feet 
+
+Inches = Meters * M_inches 
+
+  
+
+print(f"{Meters} meters is the same than:") 
+
+print(f"{Miles:.8f} miles") 
+
+print(f"{Feet:.4f} feet") 
+
+print(f"{Inches:.2f} inches") 
