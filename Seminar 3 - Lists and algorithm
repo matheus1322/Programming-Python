@@ -1,0 +1,198 @@
+my_list = UnorderedList(): # An empty UnorderedList object is created. We can assume UnorderedList is a custom class that implements a list-like structure without any specific ordering. 
+
+number_list = [11, 17, 7, 3, 26, 54, 2]: #A regular Python list is created, containing the numbers to be added to my_list. 
+
+for num in number_list:: #The code iterates through each number in number_list. 
+
+my_list.add(num): #Inside the loop, each number from number_list is added to my_list using the add method of the UnorderedList class. 
+
+print(my_list.size()): #The size() method of my_list is called and its result (the number of elements in my_list) is printed. 
+
+print(my_list.search(17)): #The search(17) method is called. We can infer that this method searches for the value 17 in my_list and returns a boolean (likely True if found, False otherwise). The result is printed. 
+
+print(my_list.search(1)): #The search(1) method is called. The result (boolean) is printed. 
+
+my_list.remove(2): #The remove(2) method is called. This removes the first occurrence of the value 2 from my_list. 
+
+my_list.remove(54): #The remove(54) method is called. This removes the first occurrence of the value 54 from my_list. 
+
+print(my_list.size()): #The size() method is called again, and the result is printed. 
+
+Final Output: 
+
+7 
+True 
+False 
+5 
+
+ 
+
+ 
+
+Give an algorithm for finding the second-to-last node in a non-empty singly linked list in which the last node is indicated by a next reference of None.  
+
+ 
+
+Assumptions: 
+
+The linked list is non-empty. 
+
+The last node's next reference is None. 
+
+Algorithm: 
+
+Initialize Pointers: 
+
+Create two pointers, current and previous. 
+
+Set current to the head of the linked list. 
+
+Set previous to None initially. 
+
+Traverse the List: 
+
+While current.next is not None (meaning current is not the last node):  
+
+Update previous to current. 
+
+Update current to current.next. 
+
+Return the Second-to-Last Node: 
+
+After the loop finishes, previous will be pointing to the second-to-last node. 
+
+Return previous. 
+
+Python-like Pseudocode: 
+
+Python 
+
+function find_second_to_last(head): 
+    if head is None or head.next is None: 
+        return None  # Handle empty list or list with only one node 
+ 
+    current = head 
+    previous = None 
+ 
+    while current.next is not None: 
+        previous = current 
+        current = current.next 
+ 
+    return previous
+ 
+
+ Describe a recursive algorithm that counts the number of nodes in a singly linked list. 
+
+Recursive Approach: 
+
+The key idea behind a recursive solution is to break down the problem into smaller, self-similar subproblems. In this case, we can count the nodes by: 
+
+Base Case: If the list is empty (i.e., the head is None), the count is 0. 
+
+Recursive Step: If the list is not empty, the count is 1 (for the current node) plus the count of the remaining nodes in the list (obtained by recursively calling the function on the rest of the list, starting from the next node). 
+
+Algorithm: 
+
+Python 
+
+function count_nodes_recursive(head): 
+    if head is None:  # Base case: empty list 
+        return 0 
+    else: 
+        return 1 + count_nodes_recursive(head.next)  # Recursive step
+  
+
+ Write a program that asks a user to type in two strings and that prints: - The characters that occur in both strings. - The characters that occur in one string but not the other. - The letters that don’t occur in either strings  
+
+ 
+
+def string_analysis(): 
+    """ 
+    Asks the user to input two strings and prints: 
+    - Characters in both strings. 
+    - Characters in one string but not the other. 
+    - Characters not in either string. 
+    """ 
+ 
+    string1 = input("Enter the first string: ") 
+    string2 = input("Enter the second string: ") 
+ 
+    set1 = set(string1) 
+    set2 = set(string2) 
+ 
+    # Characters in both strings 
+    common_chars = set1.intersection(set2) 
+    print("Characters in both strings:", "".join(common_chars)) 
+ 
+    # Characters in one string but not the other 
+    unique_chars1 = set1.difference(set2) 
+    unique_chars2 = set2.difference(set1) 
+    print("Characters in one string but not the other:", "".join(unique_chars1.union(unique_chars2))) 
+ 
+    # Characters not in either string (assuming ASCII lowercase letters) 
+    all_chars = set("abcdefghijklmnopqrstuvwxyz") 
+    non_existent_chars = all_chars.difference(set1.union(set2)) 
+    print("Characters not in either string:", "".join(non_existent_chars)) 
+ 
+if __name__ == "__main__": 
+    string_analysis()
+ 
+
+Write a new version of the program in week 5 intname.py that uses a dictionary instead of if statement. 
+
+def int_to_english(num): 
+    """ 
+    Converts an integer to its English word representation using a dictionary. 
+    """ 
+ 
+    if num == 0: 
+        return "zero" 
+ 
+    ones = { 
+        1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 
+        6: "six", 7: "seven", 8: "eight", 9: "nine" 
+    } 
+ 
+    teens = { 
+        10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 
+        15: "fifteen", 16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen" 
+    } 
+ 
+    tens = { 
+        20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 
+        60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety" 
+    } 
+ 
+    if num < 10: 
+        return ones.get(num) 
+    elif num < 20: 
+        return teens.get(num) 
+    elif num < 100: 
+        ten = num // 10 * 10 
+        one = num % 10 
+        return tens.get(ten) + (" " + ones.get(one) if one else "") 
+    elif num < 1000: 
+        hundred = num // 100 
+        remainder = num % 100 
+        return ones.get(hundred) + " hundred" + (" and " + int_to_english(remainder) if remainder else "") 
+    elif num < 1000000: 
+        thousand = num // 1000 
+        remainder = num % 1000 
+        return int_to_english(thousand) + " thousand" + (" " + int_to_english(remainder) if remainder else "") 
+    elif num < 1000000000: 
+        million = num // 1000000 
+        remainder = num % 1000000 
+        return int_to_english(million) + " million" + (" " + int_to_english(remainder) if remainder else "") 
+    else: 
+        return "Number too large to convert" 
+ 
+# Test the function 
+print(int_to_english(0)) 
+print(int_to_english(5)) 
+print(int_to_english(12)) 
+print(int_to_english(37)) 
+print(int_to_english(123)) 
+print(int_to_english(1234)) 
+print(int_to_english(123456)) 
+print(int_to_english(1234567)) 
+print(int_to_english(123456789)) 
